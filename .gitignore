@@ -1,0 +1,44 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Environment files
+.env
+*.env
+
+# Logs & temporary files
+*.log
+*.pot
+*.py[co]
+.DS_Store
+
+# SQLite database (OPTIONAL)
+# If you want to initialize database using `create_db.py`, uncomment below to ignore
+# instance/*.db
+
+# Byte-compiled / compiled files
+*.db-journal
+
+# Node-related (if any future front-end)
+node_modules/
+dist/
+build/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
