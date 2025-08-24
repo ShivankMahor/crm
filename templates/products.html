@@ -4,22 +4,33 @@
 
 {% block content %}
     <h2>Product Information</h2>
-    <table class="table table-striped table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>Product</th>
-                <th>Stock</th>
-                <th>Base Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ "{:,.0f}".format(product.stock) }}</td>
-                <td>{{ "{:,.0f}".format(product.base_price) }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <p>All fields are editable. Click "Save Changes" at the bottom to update.</p>
+
+    <form method="POST" action="{{ url_for('products') }}">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Stock</th>
+                    <th>Base Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        <input type="text" name="name-{{ product.id }}" value="{{ product.name }}" class="form-control" required>
+                    </td>
+                    <td>
+                        <input type="number" name="stock-{{ product.id }}" value="{{ product.stock }}" class="form-control" required>
+                    </td>
+                    <td>
+                        <input type="number" name="price-{{ product.id }}" value="{{ product.base_price }}" class="form-control" required>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    </form>
 {% endblock %}
